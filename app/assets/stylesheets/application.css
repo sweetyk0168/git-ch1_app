@@ -20,32 +20,131 @@
   box-sizing: border-box;
 }
 
-/*header {*/
-/*  width: 1024px;*/
-/*  height: 70px;*/
-/*}*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 100px;
+  position: relative;
+  padding: 0 20px;
+  background-color: #EC715F; 
+}
 
-nav {
-    width: 1024px;
-    height: 70px;
-    background-image: url("logo.png");
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 215px;
-    display: flex;
+.nav {
+    min-height: 70px;
+    background-color: #EC715F; 
 }
-.image {
-  background-image: url("logo.png");
+
+/*nav {*/
+/*    width: 100%;*/
+/*    height: 70px;*/
+    /*background-image: url("logo.png");*/
+    /*background-position: left;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100px;*/
+/*    display: flex;*/
+/*    background-color: #EC715F; */
+/*}*/
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  z-index: 100;/* 重なり順を一番上にする */
+  cursor: pointer;
+}
+
+/*ハンバーガーメニューのアイコン  */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  /*display: block;*/
+  height: 3px;
+  width: 25px;
+  /*right: 5px;*/
+  border: 2px solid;
+  border-radius: 3px;
+  background: #333;
+  transition: 0.5s;
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/*三本線の一番上の棒の位置調整  */
+.drawer_open span:before {
+  background-color: #FAFAFA;
+  bottom: 8px;
+}
+
+.drawer_open span {
+  background-color: #FAFAFA;
+}
+
+/*三本線の一番下の棒の位置調整  */
+.drawer_open span:after {
+  background-color: #FAFAFA;
+  top: 8px;
+}
+
+/*アイコンがクリックされたら真ん中の線を透明にする  */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/*アイコンがクリックされたらアイコンが×印になるように上下の線を回転  */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/*メニューのデザイン  */
+.nav_content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 100%;/*メニューを画面の外に飛ばす  */
+  z-index: 99;
+  /*background-color: #EC715F;*/
+  /*background: rgb(110, 110, 110);*/
+  transition: .5s;
+  text-align: center;
+  padding-top: 20px;
+}
+
+/*メニュー黒ポチを消す  */
+.nav_list {
+  list-style: none;
+  text-align: center;
+}
+
+/*アイコンがクリックされたらメニューを表示  */
+#drawer_input:checked ~ .nav_content {
+  left: 0;
+}
+
+/*.image {*/
+/*  background-image: url("logo.png");*/
   /*background-position: left;*/
-  background-repeat: no-repeat;
-}
+/*  background-repeat: no-repeat;*/
+/*}*/
 
 ul {
    display: flex;
-}
-
-nav {
- background-color: #EC715F; 
 }
 
 .nav-item {
@@ -53,4 +152,84 @@ nav {
   color: #FAFAFA;
   margin-left: 30px;
   margin-light: 30px;
+}
+
+.main-visual {
+  /*width: 90%;*/
+  height: 650px;
+  background-image: url("mv.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: #FAFAFA;
+  position: relative;
+  /*margin-top: 200px;*/
+}
+
+h5 {
+  font-size: 18px;
+  color: #FAFAFA;
+  margin-top: 10px;
+}
+
+.main {
+  /*width: 90%;*/
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /*margin: 0 auto;*/
+  padding-top: 90px;
+  background-color: #ECEFF1,
+                    #ECEFF1,
+                    #ECEFF1,
+                    #ECEFF1,
+                    #ECEFF1,
+                    #ECEFF1;
+  background-image: url("sketch.jpg"),
+                    url("websuku.png"),
+                    url("write.jpg"),
+                    url("webcamp.png"),
+                    url("talk.jpg"),
+                    url("webcamp-mother.png");
+  background-repeat: no-repeat,
+                     no-repeat,
+                     no-repeat,
+                     no-repeat,
+                     no-repeat,
+                     no-repeat;
+  background-position: left,
+                       left,
+                       left,
+                       left,
+                       left,
+                       left;
+  background-size: 250px 300px,
+                   250px 300px,
+                   250px 300px,
+                   250px 300px,
+                   250px 300px,
+                   250px 300px,
+                   250px 300px;
+}
+
+h3 {
+  /*margin-top: 90px;*/
+  /*margin-bottom: 8px;*/
+  font-size: 32px;
+  color: #000000;
+}
+
+p {
+  /*margin-top: 30px;*/
+  /*margin-bottom: 30px;*/
+  font-size: 16px;
+  color: #000000;
 }
